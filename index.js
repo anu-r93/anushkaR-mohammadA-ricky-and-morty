@@ -34,7 +34,8 @@ const fetchCharacters = async (url) => {
       cardContainer.innerHTML = cards;
       pagination.textContent = `${page} / ${maxPage}`;
     } else if (response.status === 404) {
-      cardContainer.innerHTML = "Oooops! No users found.";
+      pagination.textContent = "0";
+      cardContainer.innerHTML = "Oooops! No users found 🥱";
     }
   } catch (err) {
     console.error(err);
