@@ -10,15 +10,17 @@
 }
 
 :root {
-  --color-primary: rgb(51, 51, 51);
-  --color-secondary: #f6f6f6;
+  --color-primary: #139dac;
+  --color-secondary: #e3eaa7;
   --font-family: system-ui;
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: "comic sans ms";
   color: var(--color-primary);
   padding: 20px;
+  background-image: url("../r&m bg.avif");
+  background-attachment: fixed;
 }
 
 main {
@@ -29,4 +31,8 @@ main {
 
 .title {
   padding: 10px 0;
+  /* font-family: "get schwifty"; */
+  /* color: var(--color-primary); */
+  height: 150px;
+  width: 300px;
 }
