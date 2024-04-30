@@ -14,6 +14,7 @@ let page = 1;
 let searchQuery = "";
 let lastPage = false;
 const url = "https://rickandmortyapi.com/api/character";
+let firstPage = 1;
 
 const fetchCharacters = async (url) => {
   console.log(url);
@@ -55,14 +56,12 @@ prevButton.addEventListener("click", () => {
   }
 });
 
-// const nextPage = true;
 searchBar.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(searchBar);
   searchQuery = formData.get("query");
-  // if (nextPage > 1) {
-  //   return page++;
-  // }
+  page = 1;
+
   await fetchCharacters(`${url}?name=${searchQuery}`);
 });
 
