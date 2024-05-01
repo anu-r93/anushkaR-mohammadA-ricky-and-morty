@@ -8,6 +8,7 @@ const navigation = document.querySelector('[data-js="navigation"]');
 const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
+const searchError = document.querySelector('[data-js="search__error"]');
 
 let maxPage = 1;
 let page = 1;
@@ -34,7 +35,11 @@ const fetchCharacters = async (url) => {
       cardContainer.innerHTML = cards;
       pagination.textContent = `${page} / ${maxPage}`;
     } else if (response.status === 404) {
-      cardContainer.innerHTML = "Oooops! No users found.";
+      pagination.textContent = "";
+      cardContainer.innerHTML = "Oooops! No users found 🥱";
+      cardContainer.style.color = "white";
+      nextButton.remove();
+      prevButton.remove();
     }
   } catch (err) {
     console.error(err);
@@ -64,21 +69,3 @@ searchBar.addEventListener("submit", async (event) => {
 
   await fetchCharacters(`${url}?name=${searchQuery}`);
 });
-
-// -----------------
-/* ### The Search Bar
-
-Now we want even more functionality in our app. 
-\\ We want to find individual characters by typing their name into the search bar.
-
-- Create a 'submit' event listener on the search bar.
-- Update the state variable `searchQuery` with the current text inside the search bar every time
-  this event is triggered.
-- Modify the fetch URL again by adding another url encoded attribute `name`: append
-  `&name=<searchQuery>` to the url. If the search query is an empty string, it will be ignored by
-  the API, so don't worry about that.
-- Now trigger the function `fetchCharacters` whenever a submit event happens.
-
-> 💡 You might run into some bugs at this point. Think about how the page and max page index might
-> have to change when you start searching for only subsets of all characters. */
-// ------------------------------------
