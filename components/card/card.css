@@ -34,7 +34,8 @@ li {
 }
 
 .card__title {
-  font-size: 25px;
+  text-transform: uppercase;
+  font-size: 21px;
 }
 
 .card__info-title {

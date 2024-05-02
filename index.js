@@ -37,9 +37,9 @@ const fetchCharacters = async (url) => {
     } else if (response.status === 404) {
       pagination.textContent = "";
       cardContainer.innerHTML = "Oooops! No users found 🥱";
-      cardContainer.style.color = "white";
-      nextButton.remove();
-      prevButton.remove();
+      // cardContainer.style.color = "white";
+      // nextButton.remove();
+      // prevButton.remove();
     }
   } catch (err) {
     console.error(err);
